@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Love ❤️</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="bgMusic" src="song.mp3" loop></audio>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+<h1 class="title">A Romantic Surprise 💕</h1>
+<p class="question">Where did we first talk? 💌</p>
+<button onclick="checkQ1('bank')">Bank</button>
+<button onclick="checkQ1('instagram')">Instagram</button>
+<div class="popup" id="popup1"></div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+<h1 class="title">Chocolate Question 🍫</h1>
+<p>What is my favourite chocolate dessert?</p>
+<input type="text" id="chocoAnswer" placeholder="Type answer">
+<button onclick="checkQ2()">Submit 💖</button>
+<div class="popup" id="popup2"></div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+<h1 class="title">Our Memories 📸</h1>
+<div class="carousel">
+<img src="images/img1.jpg">
+<img src="images/img2.jpg">
+<img src="images/img3.jpg">
+<img src="images/img4.jpg">
+<img src="images/img5.jpg">
+<img src="images/img6.jpg">
+</div>
+<button onclick="unlockMagic()">Unlock Magic 💫</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+<h1 class="title">You Are My Forever 💖</h1>
+<button onclick="showVideo()">Watch Surprise 🎬</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="page5">
+<h1 class="title">Will You Be Mine Forever? 💍</h1>
+<video width="320" controls>
+<source src="video.mp4" type="video/mp4">
+</video>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
