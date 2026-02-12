@@ -1,14 +1,51 @@
-const pages=document.querySelectorAll('.page');
-function nextPage(id){pages.forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active')}
+const pages = document.querySelectorAll('.page');
 
-function moveNo(btn){btn.style.position='absolute';btn.style.top=Math.random()*80+'%';btn.style.left=Math.random()*80+'%'}
+function nextPage(id){
+    pages.forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
 
-function showPopup(){document.getElementById('popup').innerText='I knew it ❤️' }
+function checkQ1(answer, btn){
+    const popup = document.getElementById('popup1');
+    if(answer === 'pen'){
+        popup.innerHTML = "Correct ❤️";
+        btn.style.background = "green";
+        setTimeout(() => nextPage('page2'), 1500);
+    } else {
+        popup.innerHTML = "Wrong 💔 Try again!";
+        btn.style.background = "red";
+    }
+}
 
-function checkPassword(){const pass=document.getElementById('password').value;if(pass==='ILoveYou'){nextPage('memoryPage')}else{alert('Wrong password 💔')}}
+function checkQ2(){
+    const ans = document.getElementById('chocoAnswer').value.toLowerCase().trim();
+    const popup = document.getElementById('popup2');
+    if(ans === "dairy milk"){
+        popup.innerHTML = "Correct 🍫❤️";
+        setTimeout(() => nextPage('page3'), 1500);
+    } else {
+        popup.innerHTML = "Wrong answer 💔 Try again!";
+    }
+}
 
-// Roses
-for(let i=0;i<25;i++){let rose=document.createElement('div');rose.className='rose';rose.innerText='🌹';rose.style.left=Math.random()*100+'%';rose.style.animationDuration=(5+Math.random()*5)+'s';document.body.appendChild(rose)}
+function unlockMagic(){
+    nextPage('page4');
+    loadCarousel();
+}
 
-// Sparkles
-for(let i=0;i<40;i++){let spark=document.createElement('div');spark.className='spark';spark.style.top=Math.random()*100+'%';spark.style.left=Math.random()*100+'%';document.body.appendChild(spark)}
+function loadCarousel(){
+    const carousel = document.getElementById('carousel');
+    const images = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg'];
+    images.forEach((src, i) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.style.transform = `rotateY(${i * 72}deg) translateZ(300px)`;
+        carousel.appendChild(img);
+    });
+}
+
+function unlockVideo(){
+    const video = document.getElementById('finalVideo');
+    video.style.display = "block";
+    video.play();
+}

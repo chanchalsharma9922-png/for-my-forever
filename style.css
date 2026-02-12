@@ -7,44 +7,30 @@ overflow:hidden;
 text-align:center;
 }
 
-.love-sky{
-position:fixed;
-top:0;
-width:100%;
-font-size:42px;
-letter-spacing:6px;
-opacity:0.06;
-animation:glowSky 4s infinite alternate;
-}
-@keyframes glowSky{from{text-shadow:0 0 20px #ff4d88}to{text-shadow:0 0 60px #ff99cc}}
-
-.page{display:none;position:absolute;width:100%;height:100%;padding-top:80px;animation:fadeIn 1.2s ease}
+.page{display:none;position:absolute;width:100%;height:100%;padding-top:80px;}
 .active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:scale(1.05)}to{opacity:1;transform:scale(1)}}
 
-.big-heart{font-size:140px;animation:heartbeat 1s infinite alternate;filter:drop-shadow(0 0 25px #ff4d88)}
+.big-heart{font-size:120px;animation:heartbeat 1s infinite alternate;}
 @keyframes heartbeat{from{transform:scale(1)}to{transform:scale(1.15)}}
 
-button{padding:14px 28px;margin:12px;border:none;border-radius:40px;background:linear-gradient(45deg,#ff4d88,#ff0066);color:white;font-size:16px;cursor:pointer;box-shadow:0 0 20px rgba(255,0,102,0.6);transition:0.3s}
-button:hover{transform:scale(1.1);box-shadow:0 0 40px rgba(255,0,102,1)}
+button{padding:12px 25px;margin:10px;border:none;border-radius:30px;
+background:linear-gradient(45deg,#ff4d88,#ff0066);
+color:white;font-size:16px;cursor:pointer;transition:0.3s}
 
-input{padding:12px;border-radius:25px;border:none;width:220px;text-align:center}
+button:hover{transform:scale(1.1)}
 
-.romantic-text{width:70%;margin:auto;font-size:18px;line-height:1.6;text-shadow:0 0 15px rgba(255,255,255,0.4)}
+input{padding:10px;border-radius:20px;border:none;width:200px;text-align:center}
 
-.popup{margin-top:20px;font-size:22px;animation:pop 0.5s ease}
-@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.popup{margin-top:20px;font-size:20px}
 
-.lock-heart{font-size:90px;cursor:pointer;animation:heartbeat 1s infinite alternate;filter:drop-shadow(0 0 30px gold)}
+.lock-heart{font-size:80px;cursor:pointer}
 
-.carousel{display:flex;justify-content:center;align-items:center;transform-style:preserve-3d;animation:rotate 20s linear infinite;margin-top:40px}
-.carousel img{position:absolute;width:180px;height:180px;border-radius:20px;object-fit:cover;box-shadow:0 0 25px rgba(255,255,255,0.5)}
+.carousel{position:relative;width:100%;height:300px;
+transform-style:preserve-3d;animation:rotate 20s linear infinite;margin-top:50px}
+
+.carousel img{position:absolute;width:180px;height:180px;border-radius:20px;
+object-fit:cover}
+
 @keyframes rotate{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
 
-video{width:75%;border-radius:20px;box-shadow:0 0 40px rgba(255,0,102,0.8)}
-
-.rose{position:fixed;font-size:24px;animation:fall linear infinite}
-@keyframes fall{from{transform:translateY(-10vh)}to{transform:translateY(110vh)}}
-
-.spark{position:fixed;width:6px;height:6px;background:white;border-radius:50%;animation:sparkle 2s infinite ease-in-out}
-@keyframes sparkle{0%,100%{opacity:0}50%{opacity:1}}
+video{width:70%;border-radius:20px;margin-top:20px}

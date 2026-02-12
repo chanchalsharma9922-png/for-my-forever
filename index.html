@@ -9,27 +9,20 @@
 <body>
 
 <div class="love-sky">I LOVE YOU 💖 I LOVE YOU 💖 I LOVE YOU 💖</div>
-<audio id="bgMusic" src="song.mp3" loop autoplay muted></audio>
+<audio id="bgMusic" src="song.mp3" loop autoplay></audio>
 
-<!-- PAGE 1 -->
 <div id="page1" class="page active">
-<div class="big-heart" id="mainHeart">❤️</div>
+<div class="big-heart">❤️</div>
 <h1>My Forever Love 💕</h1>
-<p class="romantic-text">
-You are my destiny, my peace, my happiness. No obstacle can ever separate us.
-We will rise together, fight together, and soon build our married life full of love,
-respect and endless joy. I love you forever. 💍✨
-</p>
 <h2>What was the first thing I asked you to give? 💌</h2>
 <div class="options">
-<button onclick="checkQ1('bank')">Bank Detail</button>
-<button onclick="checkQ1('aadhaar')">Adhaar Card</button>
-<button onclick="checkQ1('pen')">A Pen</button>
+<button onclick="checkQ1('bank', this)">Bank Detail</button>
+<button onclick="checkQ1('aadhaar', this)">Aadhaar Card</button>
+<button onclick="checkQ1('pen', this)">A Pen</button>
 </div>
 <div id="popup1" class="popup"></div>
 </div>
 
-<!-- PAGE 2 -->
 <div id="page2" class="page">
 <div class="big-heart">💖</div>
 <h2>What is your favourite chocolate? 🍫</h2>
@@ -38,37 +31,25 @@ respect and endless joy. I love you forever. 💍✨
 <div id="popup2" class="popup"></div>
 </div>
 
-<!-- PAGE 3 -->
 <div id="page3" class="page">
 <div class="lock-heart" onclick="unlockMagic()">🔒❤️
 <p>Click here to see the magic ✨</p>
 </div>
-<p class="romantic-text">Our love is locked safely in my heart. Step into our beautiful forever. 💖</p>
 </div>
 
-<!-- PAGE 4 -->
 <div id="page4" class="page">
 <h1>Our Beautiful Journey Together ❤️</h1>
 <div class="carousel" id="carousel"></div>
-<p class="romantic-text">
-Every picture tells a story of us. Every smile promises forever.
-No matter what comes, we will marry and live the happiest life together. 💞🌹
-</p>
-<button onclick="showVideo()">Click Here To See One More Surprise 🎬</button>
+<button onclick="nextPage('page5')">Next Surprise 🎬</button>
 </div>
 
-<!-- PAGE 5 -->
 <div id="page5" class="page">
-<div class="lock-heart" id="videoLock" onclick="unlockVideo()">🔒💖
-<p>Unlock Our Final Surprise</p>
+<div class="lock-heart" onclick="unlockVideo()">🔒💖
+<p>Unlock Final Surprise</p>
 </div>
-<video id="finalVideo" autoplay muted playsinline style="display:none;">
+<video id="finalVideo" controls style="display:none;">
 <source src="video.mp4" type="video/mp4">
 </video>
-<p class="romantic-text">
-I promise to love you endlessly. Our future is bright and unbreakable.
-I love you today, tomorrow and forever. 💖
-</p>
 </div>
 
 <script src="script.js"></script>
