@@ -1,36 +1,102 @@
 body{
 margin:0;
-font-family:'Poppins',sans-serif;
-background:radial-gradient(circle at center,#ff003c,#0a0014 70%);
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#ff1e56,#1a001f);
 color:white;
 overflow:hidden;
 text-align:center;
 }
 
-.page{display:none;position:absolute;width:100%;height:100%;padding-top:80px;}
-.active{display:block}
+.page{display:none;height:100vh;justify-content:center;align-items:center;flex-direction:column;padding:20px}
+.active{display:flex}
+.center{text-align:center}
 
-.big-heart{font-size:120px;animation:heartbeat 1s infinite alternate;}
-@keyframes heartbeat{from{transform:scale(1)}to{transform:scale(1.15)}}
+.glow{font-size:32px;text-shadow:0 0 20px #fff,0 0 40px #ff4da6}
 
-button{padding:12px 25px;margin:10px;border:none;border-radius:30px;
-background:linear-gradient(45deg,#ff4d88,#ff0066);
-color:white;font-size:16px;cursor:pointer;transition:0.3s}
+.start-btn{padding:15px 30px;border:none;border-radius:40px;
+background:linear-gradient(45deg,#ff4da6,#ff0066);color:white;font-size:18px;cursor:pointer}
 
-button:hover{transform:scale(1.1)}
+button{padding:10px 20px;margin:10px;border:none;border-radius:25px;
+background:linear-gradient(45deg,#ff4da6,#ff0066);color:white;cursor:pointer}
+
+.correct{background:green!important}
+.wrong{background:red!important}
 
 input{padding:10px;border-radius:20px;border:none;width:200px;text-align:center}
 
-.popup{margin-top:20px;font-size:20px}
+.popup{margin-top:15px;font-size:18px}
 
-.lock-heart{font-size:80px;cursor:pointer}
+.gallery{
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+pointer-events:none;
+}
 
-.carousel{position:relative;width:100%;height:300px;
-transform-style:preserve-3d;animation:rotate 20s linear infinite;margin-top:50px}
+.gallery img{
+width:150px;
+height:150px;
+margin:15px;
+border-radius:20px;
+object-fit:cover;
+animation:swing 4s ease-in-out infinite alternate;
+}
 
-.carousel img{position:absolute;width:180px;height:180px;border-radius:20px;
-object-fit:cover}
+@keyframes swing{
+from{transform:rotate(-10deg)}
+to{transform:rotate(10deg)}
+}
 
-@keyframes rotate{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
+video{
+position:absolute;
+bottom:20px;
+width:80%;
+border-radius:20px;
+box-shadow:0 0 30px #ff4da6;
+}
 
-video{width:70%;border-radius:20px;margin-top:20px}
+.hearts .heart{
+position:fixed;
+width:20px;
+height:20px;
+background:red;
+transform:rotate(45deg);
+animation:fall linear infinite;
+}
+.heart::before,.heart::after{
+content:'';
+position:absolute;
+width:20px;height:20px;background:red;border-radius:50%;
+}
+.heart::before{top:-10px;left:0}
+.heart::after{left:-10px;top:0}
+
+@keyframes fall{
+from{top:-10%}
+to{top:110%}
+}
+
+.firework{
+position:fixed;
+width:10px;height:10px;
+background:yellow;
+border-radius:50%;
+animation:explode 1s ease-out;
+}
+
+@keyframes explode{
+from{transform:scale(1);opacity:1}
+to{transform:scale(5);opacity:0}
+}
+
+@media(max-width:768px){
+.glow{font-size:24px}
+.gallery img{width:90px;height:90px}
+video{width:95%}
+}

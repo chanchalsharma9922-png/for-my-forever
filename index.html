@@ -3,52 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Forever Love 💖</title>
+<title>Our Eternal Love 💖</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="love-sky">I LOVE YOU 💖 I LOVE YOU 💖 I LOVE YOU 💖</div>
-<audio id="bgMusic" src="song.mp3" loop autoplay></audio>
+<audio id="bgMusic" src="music/song.mp3" loop></audio>
 
-<div id="page1" class="page active">
-<div class="big-heart">❤️</div>
-<h1>My Forever Love 💕</h1>
+<div class="hearts"></div>
+<div class="sparkles"></div>
+
+<div id="page1" class="page active center">
+<h1 class="glow">Welcome My Love 💕</h1>
+<p id="typing"></p>
+<button class="start-btn" onclick="startExperience()">Enter Our Love Story 💖</button>
+</div>
+
+<div id="page2" class="page center">
 <h2>What was the first thing I asked you to give? 💌</h2>
 <div class="options">
-<button onclick="checkQ1('bank', this)">Bank Detail</button>
-<button onclick="checkQ1('aadhaar', this)">Aadhaar Card</button>
-<button onclick="checkQ1('pen', this)">A Pen</button>
+<button onclick="checkQ1('bank',this)">Bank Detail</button>
+<button onclick="checkQ1('aadhaar',this)">Aadhaar Card</button>
+<button onclick="checkQ1('pen',this)">A Pen</button>
 </div>
 <div id="popup1" class="popup"></div>
 </div>
 
-<div id="page2" class="page">
-<div class="big-heart">💖</div>
+<div id="page3" class="page center">
 <h2>What is your favourite chocolate? 🍫</h2>
 <input type="text" id="chocoAnswer" placeholder="Type your answer">
 <button onclick="checkQ2()">Submit 💕</button>
 <div id="popup2" class="popup"></div>
 </div>
 
-<div id="page3" class="page">
-<div class="lock-heart" onclick="unlockMagic()">🔒❤️
-<p>Click here to see the magic ✨</p>
+<div id="page4" class="page center">
+<h2>Our Beautiful Memories 💞</h2>
+<div class="gallery">
+<img src="images/img1.jpg">
+<img src="images/img2.jpg">
+<img src="images/img3.jpg">
+<img src="images/img4.jpg">
+<img src="images/img5.jpg">
+<img src="images/img6.jpg">
 </div>
-</div>
-
-<div id="page4" class="page">
-<h1>Our Beautiful Journey Together ❤️</h1>
-<div class="carousel" id="carousel"></div>
-<button onclick="nextPage('page5')">Next Surprise 🎬</button>
-</div>
-
-<div id="page5" class="page">
-<div class="lock-heart" onclick="unlockVideo()">🔒💖
-<p>Unlock Final Surprise</p>
-</div>
-<video id="finalVideo" controls style="display:none;">
-<source src="video.mp4" type="video/mp4">
+<video id="finalVideo" autoplay muted playsinline>
+<source src="video/mylove.mp4" type="video/mp4">
 </video>
 </div>
 
