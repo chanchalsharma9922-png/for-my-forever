@@ -39,7 +39,7 @@ setTimeout(()=>fire.remove(),1000);
 
 function checkQ1(answer,btn){
 const popup=document.getElementById('popup1');
-if(answer==='pen'){
+if(answer==='bank'){   // ✅ Corrected Answer
 popup.innerHTML="Correct ❤️";
 btn.classList.add("correct");
 fireworks();
@@ -53,7 +53,7 @@ btn.classList.add("wrong");
 function checkQ2(){
 const ans=document.getElementById('chocoAnswer').value.toLowerCase().trim();
 const popup=document.getElementById('popup2');
-if(ans==="dairy milk"){
+if(ans==="mousse"){   // ✅ Corrected Answer
 popup.innerHTML="Correct 🍫💖";
 fireworks();
 setTimeout(()=>nextPage('page4'),2000);
