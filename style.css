@@ -1,104 +1,50 @@
 body{
 margin:0;
-font-family:'Segoe UI',sans-serif;
-background:black;
+font-family:'Poppins',sans-serif;
+background:radial-gradient(circle at center,#ff003c,#0a0014 70%);
 color:white;
 overflow:hidden;
 text-align:center;
 }
 
-.page{
-display:none;
-position:absolute;
-width:100%;
-height:100%;
-padding-top:60px;
-background:radial-gradient(circle,#ff0055,#000);
-animation:fade 1.5s ease;
-}
-
-.active{display:block}
-
-@keyframes fade{from{opacity:0}to{opacity:1}}
-
-.big-heart{
-font-size:130px;
-animation:beat 1s infinite alternate;
-}
-
-@keyframes beat{from{transform:scale(1)}to{transform:scale(1.2)}}
-
-.options button, button{
-padding:12px 25px;
-margin:10px;
-border:none;
-border-radius:30px;
-background:white;
-color:#ff0055;
-font-size:16px;
-cursor:pointer;
-}
-
-.romantic-text{
-width:70%;
-margin:auto;
-font-size:18px;
-}
-
-.popup{
-margin-top:20px;
-font-size:22px;
-animation:pop 0.5s ease;
-}
-
-@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
-
-.lock-heart{
-font-size:80px;
-cursor:pointer;
-animation:beat 1s infinite alternate;
-}
-
-.carousel{
-display:flex;
-justify-content:center;
-gap:20px;
-margin-top:20px;
-animation:rotate 20s linear infinite;
-}
-
-.carousel img{
-width:150px;
-height:150px;
-border-radius:20px;
-object-fit:cover;
-}
-
-@keyframes rotate{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
-
-video{
-width:80%;
-margin-top:30px;
-border-radius:20px;
-}
-
-/* Glowing Sky */
 .love-sky{
 position:fixed;
 top:0;
 width:100%;
-font-size:40px;
-opacity:0.05;
-animation:glow 3s infinite alternate;
+font-size:42px;
+letter-spacing:6px;
+opacity:0.06;
+animation:glowSky 4s infinite alternate;
 }
+@keyframes glowSky{from{text-shadow:0 0 20px #ff4d88}to{text-shadow:0 0 60px #ff99cc}}
 
-@keyframes glow{from{text-shadow:0 0 10px pink}to{text-shadow:0 0 40px red}}
+.page{display:none;position:absolute;width:100%;height:100%;padding-top:80px;animation:fadeIn 1.2s ease}
+.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:scale(1.05)}to{opacity:1;transform:scale(1)}}
 
-/* Falling Roses */
-.rose{
-position:fixed;
-font-size:24px;
-animation:fall linear infinite;
-}
+.big-heart{font-size:140px;animation:heartbeat 1s infinite alternate;filter:drop-shadow(0 0 25px #ff4d88)}
+@keyframes heartbeat{from{transform:scale(1)}to{transform:scale(1.15)}}
 
+button{padding:14px 28px;margin:12px;border:none;border-radius:40px;background:linear-gradient(45deg,#ff4d88,#ff0066);color:white;font-size:16px;cursor:pointer;box-shadow:0 0 20px rgba(255,0,102,0.6);transition:0.3s}
+button:hover{transform:scale(1.1);box-shadow:0 0 40px rgba(255,0,102,1)}
+
+input{padding:12px;border-radius:25px;border:none;width:220px;text-align:center}
+
+.romantic-text{width:70%;margin:auto;font-size:18px;line-height:1.6;text-shadow:0 0 15px rgba(255,255,255,0.4)}
+
+.popup{margin-top:20px;font-size:22px;animation:pop 0.5s ease}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+
+.lock-heart{font-size:90px;cursor:pointer;animation:heartbeat 1s infinite alternate;filter:drop-shadow(0 0 30px gold)}
+
+.carousel{display:flex;justify-content:center;align-items:center;transform-style:preserve-3d;animation:rotate 20s linear infinite;margin-top:40px}
+.carousel img{position:absolute;width:180px;height:180px;border-radius:20px;object-fit:cover;box-shadow:0 0 25px rgba(255,255,255,0.5)}
+@keyframes rotate{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
+
+video{width:75%;border-radius:20px;box-shadow:0 0 40px rgba(255,0,102,0.8)}
+
+.rose{position:fixed;font-size:24px;animation:fall linear infinite}
 @keyframes fall{from{transform:translateY(-10vh)}to{transform:translateY(110vh)}}
+
+.spark{position:fixed;width:6px;height:6px;background:white;border-radius:50%;animation:sparkle 2s infinite ease-in-out}
+@keyframes sparkle{0%,100%{opacity:0}50%{opacity:1}}
