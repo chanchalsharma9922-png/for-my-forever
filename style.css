@@ -7,9 +7,8 @@ overflow:hidden;
 text-align:center;
 }
 
-.page{display:none;height:100vh;justify-content:center;align-items:center;flex-direction:column;padding:20px}
+.page{display:none;height:100vh;justify-content:center;align-items:center;flex-direction:column;padding:20px;position:relative}
 .active{display:flex}
-.center{text-align:center}
 
 .glow{font-size:32px;text-shadow:0 0 20px #fff,0 0 40px #ff4da6}
 
@@ -26,7 +25,40 @@ input{padding:10px;border-radius:20px;border:none;width:200px;text-align:center}
 
 .popup{margin-top:15px;font-size:18px}
 
-.gallery{
+/* -------- FINAL PAGE -------- */
+
+.final-page{
+overflow:hidden;
+}
+
+.cute-msg{
+position:absolute;
+top:20px;
+width:100%;
+font-size:24px;
+text-shadow:0 0 15px #fff;
+z-index:3;
+}
+
+.video-container{
+position:absolute;
+bottom:20px;
+width:100%;
+display:flex;
+justify-content:center;
+z-index:2;
+}
+
+video{
+width:85%;
+max-width:500px;
+border-radius:20px;
+box-shadow:0 0 30px #ff4da6;
+}
+
+/* Rotating images around screen */
+
+.rotating-gallery{
 position:absolute;
 width:100%;
 height:100%;
@@ -35,31 +67,31 @@ left:0;
 display:flex;
 justify-content:center;
 align-items:center;
-flex-wrap:wrap;
-pointer-events:none;
+animation:rotateGallery 25s linear infinite;
 }
 
-.gallery img{
-width:150px;
-height:150px;
-margin:15px;
+.rotating-gallery img{
+position:absolute;
+width:120px;
+height:120px;
 border-radius:20px;
 object-fit:cover;
-animation:swing 4s ease-in-out infinite alternate;
+box-shadow:0 0 20px #ff4da6;
 }
 
-@keyframes swing{
-from{transform:rotate(-10deg)}
-to{transform:rotate(10deg)}
+.rotating-gallery img:nth-child(1){ transform:rotate(0deg) translate(250px) rotate(0deg); }
+.rotating-gallery img:nth-child(2){ transform:rotate(60deg) translate(250px) rotate(-60deg); }
+.rotating-gallery img:nth-child(3){ transform:rotate(120deg) translate(250px) rotate(-120deg); }
+.rotating-gallery img:nth-child(4){ transform:rotate(180deg) translate(250px) rotate(-180deg); }
+.rotating-gallery img:nth-child(5){ transform:rotate(240deg) translate(250px) rotate(-240deg); }
+.rotating-gallery img:nth-child(6){ transform:rotate(300deg) translate(250px) rotate(-300deg); }
+
+@keyframes rotateGallery{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
 }
 
-video{
-position:absolute;
-bottom:20px;
-width:80%;
-border-radius:20px;
-box-shadow:0 0 30px #ff4da6;
-}
+/* Hearts */
 
 .hearts .heart{
 position:fixed;
@@ -82,21 +114,7 @@ from{top:-10%}
 to{top:110%}
 }
 
-.firework{
-position:fixed;
-width:10px;height:10px;
-background:yellow;
-border-radius:50%;
-animation:explode 1s ease-out;
-}
-
-@keyframes explode{
-from{transform:scale(1);opacity:1}
-to{transform:scale(5);opacity:0}
-}
-
 @media(max-width:768px){
-.glow{font-size:24px}
-.gallery img{width:90px;height:90px}
 video{width:95%}
+.rotating-gallery img{width:70px;height:70px}
 }
