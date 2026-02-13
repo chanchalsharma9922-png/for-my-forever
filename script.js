@@ -25,22 +25,22 @@ t();
 
 function checkQ1(a){
 if(a==='bank'){
-document.getElementById("popup1").innerHTML="Correct ❤️";
+popup1.innerHTML="Correct ❤️";
 setTimeout(()=>switchPage('page3'),2000);
-}else document.getElementById("popup1").innerHTML="Wrong 💔 Try again!";
+}else popup1.innerHTML="Wrong 💔 Try again!";
 }
 
 function checkQ2(){
-let v=document.getElementById("chocoAnswer").value.toLowerCase().trim();
+let v=chocoAnswer.value.toLowerCase().trim();
 if(v==="mousse"){
-document.getElementById("popup2").innerHTML="Correct 💖";
+popup2.innerHTML="Correct 💖";
 setTimeout(()=>switchPage('page4'),2000);
-}else document.getElementById("popup2").innerHTML="Wrong 💔 Try again!";
+}else popup2.innerHTML="Wrong 💔 Try again!";
 }
 
 function goToHug(){
 switchPage('page5');
-document.getElementById("finalVideo").play();
+finalVideo.play();
 typeLove();
 heartExplosion();
 }
@@ -49,22 +49,19 @@ function typeLove(){
 let msg="My love, you are my peace, my happiness, my safest place in this world. I promise to hold you, protect you, pamper you and love you more deeply every single day of my life. You are my forever and always. 💞";
 let words=msg.split(" ");
 let i=0;
-let box=document.getElementById("loveMessage");
-box.innerHTML="";
+loveMessage.innerHTML="";
 function add(){
 if(i<words.length){
-box.innerHTML+=words[i]+" ";
+loveMessage.innerHTML+=words[i]+" ";
 i++; setTimeout(add,8000/words.length);
 }}
 add();
 }
 
 function heartExplosion(){
-for(let i=0;i<60;i++){
+for(let i=0;i<50;i++){
 let h=document.createElement("div");
 h.className="burst";
-h.style.left="50%";
-h.style.top="50%";
 h.style.setProperty('--x',(Math.random()*400-200)+'px');
 h.style.setProperty('--y',(Math.random()*400-200)+'px');
 document.body.appendChild(h);
@@ -72,21 +69,23 @@ setTimeout(()=>h.remove(),1500);
 }
 }
 
-function floatingDecor(){
-for(let i=0;i<20;i++){
-let rose=document.createElement("div");
-rose.className="rose";
-rose.innerHTML="🌹";
-rose.style.left=Math.random()*100+"%";
-rose.style.animationDuration=(5+Math.random()*5)+"s";
-document.body.appendChild(rose);
+/* Falling rose petals */
+setInterval(()=>{
+let petal=document.createElement("div");
+petal.className="petal";
+petal.innerHTML="🌸";
+petal.style.left=Math.random()*100+"%";
+petal.style.animationDuration=(6+Math.random()*6)+"s";
+document.body.appendChild(petal);
+setTimeout(()=>petal.remove(),12000);
+},500);
 
-let balloon=document.createElement("div");
-balloon.className="balloon";
-balloon.innerHTML="🎈";
-balloon.style.left=Math.random()*100+"%";
-balloon.style.animationDuration=(6+Math.random()*6)+"s";
-document.body.appendChild(balloon);
-}
-}
-floatingDecor();
+/* Sparkle cursor */
+document.addEventListener("mousemove",e=>{
+let s=document.createElement("div");
+s.className="sparkle";
+s.style.left=e.pageX+"px";
+s.style.top=e.pageY+"px";
+document.body.appendChild(s);
+setTimeout(()=>s.remove(),800);
+});

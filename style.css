@@ -1,10 +1,13 @@
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
-background:linear-gradient(-45deg,#ff1e56,#ff66a3,#8a2be2,#1a001f);
+background:linear-gradient(-45deg,#ff1e56,#ff66a3,#ffb6c1,#8a2be2);
 background-size:400% 400%;
 animation:bg 12s infinite ease;
-color:white; overflow:hidden; text-align:center;
+color:white;
+overflow:hidden;
+text-align:center;
+cursor:none;
 }
 
 @keyframes bg{
@@ -18,10 +21,7 @@ color:white; overflow:hidden; text-align:center;
 .fade{animation:fade 1.5s}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 
-.title{
-font-family:'Great Vibes',cursive;
-font-size:52px;
-}
+.title{font-family:'Great Vibes',cursive;font-size:52px}
 
 button{
 padding:12px 25px;margin:10px;border:none;border-radius:30px;
@@ -30,27 +30,29 @@ font-size:18px;background:linear-gradient(45deg,#ff4da6,#ff0066);color:white;cur
 
 input{padding:10px;border-radius:20px;border:none;width:220px;text-align:center}
 
-/* 3D Floating Images */
-.floating-container img{
+/* Heart photo frames */
+.heart-frame{
 position:absolute;
-width:230px;height:230px;border-radius:30px;object-fit:cover;
-animation:float3d 15s infinite ease-in-out alternate;
+width:220px;height:220px;
+clip-path:polygon(50% 90%,0 40%,20% 0,50% 20%,80% 0,100% 40%);
+animation:float 14s infinite alternate ease-in-out;
 }
 
-.floating-container img:nth-child(1){top:5%;left:5%}
-.floating-container img:nth-child(2){top:20%;right:10%}
-.floating-container img:nth-child(3){bottom:25%;left:15%}
-.floating-container img:nth-child(4){bottom:10%;right:20%}
-.floating-container img:nth-child(5){top:50%;left:40%}
-.floating-container img:nth-child(6){top:70%;right:35%}
-
-@keyframes float3d{
-0%{transform:translate(0,0) rotateY(0deg) scale(1)}
-25%{transform:translate(150px,-80px) rotateY(20deg) scale(1.2)}
-50%{transform:translate(-120px,100px) rotateY(-20deg) scale(1)}
-75%{transform:translate(100px,60px) rotateY(15deg) scale(1.25)}
-100%{transform:translate(-140px,-90px) rotateY(-15deg) scale(1)}
+.heart-frame img{
+width:100%;height:100%;object-fit:cover;
 }
+
+@keyframes float{
+to{transform:translate(120px,-80px)}
+}
+
+/* Positions */
+.heart-frame:nth-child(1){top:5%;left:5%}
+.heart-frame:nth-child(2){top:15%;right:10%}
+.heart-frame:nth-child(3){bottom:30%;left:15%}
+.heart-frame:nth-child(4){bottom:10%;right:20%}
+.heart-frame:nth-child(5){top:50%;left:40%}
+.heart-frame:nth-child(6){top:70%;right:35%}
 
 .hug-btn{
 position:absolute;bottom:40px;font-size:28px;font-weight:bold;cursor:pointer;
@@ -59,40 +61,52 @@ animation:pulse 1.5s infinite;
 @keyframes pulse{50%{transform:scale(1.2)}}
 
 .hug .love-text{
-font-family:'Great Vibes',cursive;
-font-size:34px;max-width:85%;margin-bottom:20px;
+font-family:'Great Vibes',cursive;font-size:34px;max-width:85%;margin-bottom:20px;
 }
 
 video{
-width:260px; /* smaller so text visible */
-border-radius:25px;box-shadow:0 0 40px #ff4da6;
+width:260px;border-radius:25px;box-shadow:0 0 40px #ff4da6;
 }
 
+/* Hearts explosion */
 .burst{
 position:fixed;width:10px;height:10px;background:pink;border-radius:50%;
 animation:explode 1.5s forwards;
-transform:translate(var(--x),var(--y));
 }
-
 @keyframes explode{
-from{opacity:1;transform:scale(1)}
 to{opacity:0;transform:translate(var(--x),var(--y)) scale(5)}
 }
 
-.rose,.balloon{
-position:fixed;top:-10%;font-size:24px;animation:fall linear infinite;
+/* Falling petals */
+.petal{
+position:fixed;top:-10%;font-size:26px;animation:fall linear infinite;
 }
-@keyframes fall{to{transform:translateY(110vh)}}
+@keyframes fall{
+to{transform:translateY(110vh) rotate(360deg)}
+}
 
-/* Glitter */
+/* Sparkles */
+.sparkle{
+position:fixed;width:6px;height:6px;
+background:radial-gradient(circle,#fff,#ff69b4);
+border-radius:50%;
+pointer-events:none;
+animation:fadeOut .8s forwards;
+}
+@keyframes fadeOut{
+to{opacity:0;transform:scale(3)}
+}
+
+/* Romantic glow */
 #glitter{
-position:fixed;width:100%;height:100%;
-background:url('https://i.imgur.com/3sK1kQF.png');
-opacity:0.2;pointer-events:none;
+position:fixed;inset:0;pointer-events:none;
+background:
+radial-gradient(circle at 20% 30%, rgba(255,182,193,0.25), transparent 40%),
+radial-gradient(circle at 80% 40%, rgba(255,105,180,0.25), transparent 45%),
+radial-gradient(circle at 50% 80%, rgba(255,20,147,0.2), transparent 50%);
+animation:shimmer 10s infinite alternate;
 }
-
-@media(max-width:768px){
-.floating-container img{width:150px;height:150px}
-video{width:200px}
-.title{font-size:38px}
+@keyframes shimmer{
+from{filter:blur(0px)}
+to{filter:blur(2px)}
 }
