@@ -10,35 +10,30 @@
 
 <audio id="bgMusic" src="music/song.mp3" loop></audio>
 
-<div class="hearts"></div>
-
-<div id="page1" class="page active center">
+<div id="page1" class="page active">
 <h1 class="glow">Welcome My Love 💕</h1>
 <p id="typing"></p>
 <button class="start-btn" onclick="startExperience()">Enter Our Love Story 💖</button>
 </div>
 
-<div id="page2" class="page center">
+<div id="page2" class="page">
 <h2>What was the first thing I asked you to give? 💌</h2>
-<div class="options">
-<button onclick="checkQ1('bank',this)">Bank Detail</button>
-<button onclick="checkQ1('aadhaar',this)">Aadhaar Card</button>
-<button onclick="checkQ1('pen',this)">A Pen</button>
-</div>
-<div id="popup1" class="popup"></div>
+<button onclick="checkQ1('bank')">Bank Detail</button>
+<button onclick="checkQ1('aadhaar')">Aadhaar Card</button>
+<button onclick="checkQ1('pen')">A Pen</button>
+<p id="popup1"></p>
 </div>
 
-<div id="page3" class="page center">
+<div id="page3" class="page">
 <h2>What is your favourite chocolate? 🍫</h2>
-<input type="text" id="chocoAnswer" placeholder="Type your answer">
+<input type="text" id="chocoAnswer">
 <button onclick="checkQ2()">Submit 💕</button>
-<div id="popup2" class="popup"></div>
+<p id="popup2"></p>
 </div>
 
 <div id="page4" class="page final-page">
-<h2 class="cute-msg">You & Me… Forever & Always 💞</h2>
 
-<div class="rotating-gallery">
+<div class="floating-images">
 <img src="images/img1.jpg">
 <img src="images/img2.jpg">
 <img src="images/img3.jpg">
@@ -47,8 +42,12 @@
 <img src="images/img6.jpg">
 </div>
 
-<div class="video-container">
-<video id="finalVideo" autoplay muted playsinline>
+<div class="hug-heart" onclick="showHug()">💖 Click here if you want a Hug</div>
+
+<div class="love-message" id="loveMessage"></div>
+
+<div class="video-container" id="videoBox" style="display:none;">
+<video id="finalVideo" muted playsinline>
 <source src="video/mylove.mp4" type="video/mp4">
 </video>
 </div>

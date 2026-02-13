@@ -1,6 +1,6 @@
+
 const pages=document.querySelectorAll('.page');
 const music=document.getElementById('bgMusic');
-const typingText="You are my today, my tomorrow and my forever. Every heartbeat whispers your name... 💖";
 
 function nextPage(id){
 pages.forEach(p=>p.classList.remove('active'));
@@ -9,66 +9,75 @@ document.getElementById(id).classList.add('active');
 
 function startExperience(){
 music.play();
-typeEffect();
+typeIntro();
 setTimeout(()=>nextPage('page2'),4000);
 }
 
-function typeEffect(){
+function typeIntro(){
+const text="You are my today, my tomorrow and my forever. 💖";
 let i=0;
-let speed=50;
 function typing(){
-if(i<typingText.length){
-document.getElementById("typing").innerHTML+=typingText.charAt(i);
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
 i++;
-setTimeout(typing,speed);
+setTimeout(typing,50);
 }
 }
 typing();
 }
 
-function fireworks(){
-for(let i=0;i<20;i++){
-let fire=document.createElement("div");
-fire.className="firework";
-fire.style.left=Math.random()*100+"%";
-fire.style.top=Math.random()*100+"%";
-document.body.appendChild(fire);
-setTimeout(()=>fire.remove(),1000);
-}
-}
-
-function checkQ1(answer,btn){
-const popup=document.getElementById('popup1');
-if(answer==='bank'){   // ✅ Corrected Answer
-popup.innerHTML="Correct ❤️";
-btn.classList.add("correct");
-fireworks();
+function checkQ1(ans){
+if(ans==='bank'){
+document.getElementById("popup1").innerHTML="Correct ❤️";
 setTimeout(()=>nextPage('page3'),2000);
 }else{
-popup.innerHTML="Wrong 💔 Try again!";
-btn.classList.add("wrong");
+document.getElementById("popup1").innerHTML="Wrong 💔 Try again!";
 }
 }
 
 function checkQ2(){
-const ans=document.getElementById('chocoAnswer').value.toLowerCase().trim();
-const popup=document.getElementById('popup2');
-if(ans==="mousse"){   // ✅ Corrected Answer
-popup.innerHTML="Correct 🍫💖";
-fireworks();
+let val=document.getElementById("chocoAnswer").value.toLowerCase().trim();
+if(val==="mousse"){
+document.getElementById("popup2").innerHTML="Correct 💖";
 setTimeout(()=>nextPage('page4'),2000);
 }else{
-popup.innerHTML="Wrong 💔 Try again!";
+document.getElementById("popup2").innerHTML="Wrong 💔 Try again!";
 }
 }
 
-function createHearts(){
-for(let i=0;i<25;i++){
-let heart=document.createElement("div");
-heart.className="heart";
-heart.style.left=Math.random()*100+"%";
-heart.style.animationDuration=(5+Math.random()*5)+"s";
-document.querySelector(".hearts").appendChild(heart);
+function showHug(){
+document.querySelector(".hug-heart").style.display="none";
+document.getElementById("videoBox").style.display="flex";
+document.getElementById("finalVideo").play();
+typeLoveMessage();
+}
+
+function typeLoveMessage(){
+let msg="My love, you are my peace, my happiness, my safest place in this world. I promise to hold you, protect you, pamper you and love you more deeply every single day of my life. You are my forever and always. 💞";
+let words=msg.split(" ");
+let i=0;
+let container=document.getElementById("loveMessage");
+container.innerHTML="";
+function addWord(){
+if(i<words.length){
+container.innerHTML+=words[i]+" ";
+i++;
+setTimeout(addWord,8000/words.length);
 }
 }
-createHearts();
+addWord();
+}
+
+function rain(symbol,count){
+for(let i=0;i<count;i++){
+let el=document.createElement("div");
+el.className="rain";
+el.innerHTML=symbol;
+el.style.left=Math.random()*100+"%";
+el.style.animationDuration=(4+Math.random()*6)+"s";
+document.body.appendChild(el);
+}
+}
+
+rain("💖",25);
+rain("🌹",20);
