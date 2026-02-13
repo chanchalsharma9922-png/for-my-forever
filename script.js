@@ -75,10 +75,10 @@ let petal=document.createElement("div");
 petal.className="petal";
 petal.innerHTML="🌸";
 petal.style.left=Math.random()*100+"%";
-petal.style.animationDuration=(6+Math.random()*6)+"s";
+petal.style.animationDuration=(4+Math.random()*4)+"s";
 document.body.appendChild(petal);
-setTimeout(()=>petal.remove(),12000);
-},500);
+setTimeout(()=>petal.remove(),9000);
+},400);
 
 /* Sparkle cursor */
 document.addEventListener("mousemove",e=>{
@@ -87,5 +87,5 @@ s.className="sparkle";
 s.style.left=e.pageX+"px";
 s.style.top=e.pageY+"px";
 document.body.appendChild(s);
-setTimeout(()=>s.remove(),800);
+setTimeout(()=>s.remove(),600);
 });

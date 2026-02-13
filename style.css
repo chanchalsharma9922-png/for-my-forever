@@ -16,96 +16,181 @@ cursor:none;
 100%{background-position:0% 50%}
 }
 
-.page{display:none;height:100vh;justify-content:center;align-items:center;flex-direction:column}
+.page{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:10px;
+box-sizing:border-box;
+}
+
 .active{display:flex}
 .fade{animation:fade 1.5s}
+
 @keyframes fade{from{opacity:0}to{opacity:1}}
 
 .title{font-family:'Great Vibes',cursive;font-size:52px}
 
 button{
-padding:12px 25px;margin:10px;border:none;border-radius:30px;
-font-size:18px;background:linear-gradient(45deg,#ff4da6,#ff0066);color:white;cursor:pointer;
+padding:12px 25px;
+margin:10px;
+border:none;
+border-radius:30px;
+font-size:18px;
+background:linear-gradient(45deg,#ff4da6,#ff0066);
+color:white;
+cursor:pointer;
 }
 
-input{padding:10px;border-radius:20px;border:none;width:220px;text-align:center}
+input{
+padding:10px;
+border-radius:20px;
+border:none;
+width:220px;
+text-align:center
+}
 
-/* Heart photo frames */
-.heart-frame{
+/* Rectangle photo frames */
+.photo-frame{
 position:absolute;
-width:220px;height:220px;
-clip-path:polygon(50% 90%,0 40%,20% 0,50% 20%,80% 0,100% 40%);
-animation:float 14s infinite alternate ease-in-out;
+width:200px;
+height:140px;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 0 20px rgba(255,255,255,0.5);
+animation:bounceMove 6s linear infinite alternate;
 }
 
-.heart-frame img{
-width:100%;height:100%;object-fit:cover;
+.photo-frame img{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
-@keyframes float{
-to{transform:translate(120px,-80px)}
+/* Fast bouncing animation */
+@keyframes bounceMove{
+0%{transform:translate(0,0)}
+25%{transform:translate(200px,80px)}
+50%{transform:translate(-180px,160px)}
+75%{transform:translate(150px,-120px)}
+100%{transform:translate(-200px,-160px)}
 }
 
 /* Positions */
-.heart-frame:nth-child(1){top:5%;left:5%}
-.heart-frame:nth-child(2){top:15%;right:10%}
-.heart-frame:nth-child(3){bottom:30%;left:15%}
-.heart-frame:nth-child(4){bottom:10%;right:20%}
-.heart-frame:nth-child(5){top:50%;left:40%}
-.heart-frame:nth-child(6){top:70%;right:35%}
+.photo-frame:nth-child(1){top:5%;left:5%;animation-delay:0s}
+.photo-frame:nth-child(2){top:10%;right:5%;animation-delay:1s}
+.photo-frame:nth-child(3){bottom:35%;left:10%;animation-delay:2s}
+.photo-frame:nth-child(4){bottom:15%;right:10%;animation-delay:3s}
+.photo-frame:nth-child(5){top:45%;left:35%;animation-delay:4s}
+.photo-frame:nth-child(6){top:65%;right:30%;animation-delay:5s}
 
-.hug-btn{
-position:absolute;bottom:40px;font-size:28px;font-weight:bold;cursor:pointer;
-animation:pulse 1.5s infinite;
+/* Mobile responsiveness */
+@media(max-width:768px){
+
+.title{font-size:36px}
+
+button{
+font-size:15px;
+padding:10px 18px;
 }
-@keyframes pulse{50%{transform:scale(1.2)}}
 
-.hug .love-text{
-font-family:'Great Vibes',cursive;font-size:34px;max-width:85%;margin-bottom:20px;
+.photo-frame{
+width:120px;
+height:85px;
 }
 
 video{
-width:260px;border-radius:25px;box-shadow:0 0 40px #ff4da6;
+width:220px;
+}
+
+.hug-btn{
+font-size:20px;
+}
+
+.hug .love-text{
+font-size:26px;
+}
+}
+
+.hug-btn{
+position:absolute;
+bottom:25px;
+font-size:26px;
+font-weight:bold;
+cursor:pointer;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{50%{transform:scale(1.2)}}
+
+.hug .love-text{
+font-family:'Great Vibes',cursive;
+font-size:34px;
+max-width:90%;
+margin-bottom:20px;
+}
+
+video{
+width:260px;
+border-radius:25px;
+box-shadow:0 0 40px #ff4da6;
 }
 
 /* Hearts explosion */
 .burst{
-position:fixed;width:10px;height:10px;background:pink;border-radius:50%;
+position:fixed;
+width:10px;
+height:10px;
+background:pink;
+border-radius:50%;
 animation:explode 1.5s forwards;
 }
+
 @keyframes explode{
 to{opacity:0;transform:translate(var(--x),var(--y)) scale(5)}
 }
 
 /* Falling petals */
 .petal{
-position:fixed;top:-10%;font-size:26px;animation:fall linear infinite;
+position:fixed;
+top:-10%;
+font-size:26px;
+animation:fall linear infinite;
 }
+
 @keyframes fall{
 to{transform:translateY(110vh) rotate(360deg)}
 }
 
 /* Sparkles */
 .sparkle{
-position:fixed;width:6px;height:6px;
+position:fixed;
+width:6px;
+height:6px;
 background:radial-gradient(circle,#fff,#ff69b4);
 border-radius:50%;
 pointer-events:none;
 animation:fadeOut .8s forwards;
 }
+
 @keyframes fadeOut{
 to{opacity:0;transform:scale(3)}
 }
 
 /* Romantic glow */
 #glitter{
-position:fixed;inset:0;pointer-events:none;
+position:fixed;
+inset:0;
+pointer-events:none;
 background:
 radial-gradient(circle at 20% 30%, rgba(255,182,193,0.25), transparent 40%),
 radial-gradient(circle at 80% 40%, rgba(255,105,180,0.25), transparent 45%),
 radial-gradient(circle at 50% 80%, rgba(255,20,147,0.2), transparent 50%);
 animation:shimmer 10s infinite alternate;
 }
+
 @keyframes shimmer{
 from{filter:blur(0px)}
 to{filter:blur(2px)}
