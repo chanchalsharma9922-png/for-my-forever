@@ -10,13 +10,16 @@
 <body>
 
 <audio id="bgMusic" src="music/song.mp3" loop></audio>
+<div id="flash"></div>
 
+<!-- PAGE 1 -->
 <div id="page1" class="page active">
 <h1 class="big-title">Welcome My Love 💕</h1>
 <p id="typing"></p>
 <button onclick="startExperience()">Enter Our Love Story 💖</button>
 </div>
 
+<!-- PAGE 2 -->
 <div id="page2" class="page">
 <h2>What was the first thing I asked you to give? 💌</h2>
 <button onclick="checkQ1('bank')">Bank Detail</button>
@@ -25,6 +28,7 @@
 <p id="popup1"></p>
 </div>
 
+<!-- PAGE 3 -->
 <div id="page3" class="page">
 <h2>What is your favourite chocolate? 🍫</h2>
 <input type="text" id="chocoAnswer">
@@ -32,7 +36,8 @@
 <p id="popup2"></p>
 </div>
 
-<div id="page4" class="page final-page">
+<!-- PAGE 4 (Moving Images Page) -->
+<div id="page4" class="page gallery-page">
 <div class="moving-gallery">
 <img src="images/img1.jpg">
 <img src="images/img2.jpg">
@@ -44,13 +49,12 @@
 <div class="hug-btn" onclick="goToHugPage()">💖 Click here if you want a Hug 💖</div>
 </div>
 
+<!-- PAGE 5 (Hug + Video + Message) -->
 <div id="page5" class="page hug-page">
 <div class="love-message" id="loveMessage"></div>
-<div class="video-container">
 <video id="finalVideo" muted playsinline>
 <source src="video/mylove.mp4" type="video/mp4">
 </video>
-</div>
 </div>
 
 <script src="script.js"></script>

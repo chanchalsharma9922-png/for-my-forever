@@ -68,7 +68,11 @@ addWord();
 }
 
 function fireworks(){
-for(let i=0;i<40;i++){
+let flash=document.getElementById("flash");
+flash.style.opacity="1";
+setTimeout(()=>flash.style.opacity="0",200);
+
+for(let i=0;i<50;i++){
 let spark=document.createElement("div");
 spark.className="firework";
 spark.style.left=Math.random()*100+"%";

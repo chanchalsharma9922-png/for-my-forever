@@ -3,10 +3,21 @@ margin:0;
 font-family:'Poppins',sans-serif;
 background:linear-gradient(-45deg,#ff1e56,#ff66a3,#8a2be2,#1a001f);
 background-size:400% 400%;
-animation:gradientBG 10s ease infinite;
+animation:gradientBG 12s ease infinite;
 color:white;
 overflow:hidden;
 text-align:center;
+}
+
+#flash{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:white;
+opacity:0;
+pointer-events:none;
+transition:0.3s;
+z-index:999;
 }
 
 @keyframes gradientBG{
@@ -15,13 +26,12 @@ text-align:center;
 100%{background-position:0% 50%}
 }
 
-.page{display:none;height:100vh;justify-content:center;align-items:center;flex-direction:column;padding:20px}
+.page{display:none;height:100vh;justify-content:center;align-items:center;flex-direction:column}
 .active{display:flex}
 
 .big-title{
 font-family:'Great Vibes',cursive;
-font-size:48px;
-text-shadow:0 0 20px #fff,0 0 40px #ff4da6;
+font-size:52px;
 }
 
 button{
@@ -43,36 +53,36 @@ width:220px;
 text-align:center;
 }
 
+/* BIG CLEAR MOVING IMAGES */
 .moving-gallery img{
 position:absolute;
-width:120px;
-height:120px;
-border-radius:20px;
+width:220px;
+height:220px;
+border-radius:25px;
 object-fit:cover;
-animation:moveAround 18s infinite alternate ease-in-out, zoomInOut 6s infinite ease-in-out;
+animation:floatMove 12s infinite alternate ease-in-out,
+zoomBounce 6s infinite ease-in-out;
 }
 
-.moving-gallery img:nth-child(1){top:5%;left:10%}
-.moving-gallery img:nth-child(2){top:20%;right:10%}
-.moving-gallery img:nth-child(3){bottom:20%;left:15%}
-.moving-gallery img:nth-child(4){bottom:10%;right:20%}
-.moving-gallery img:nth-child(5){top:50%;left:40%}
-.moving-gallery img:nth-child(6){top:70%;right:35%}
-
-@keyframes moveAround{
+@keyframes floatMove{
 0%{transform:translate(0,0)}
-100%{transform:translate(180px,-150px)}
+25%{transform:translate(120px,-80px)}
+50%{transform:translate(-100px,100px)}
+75%{transform:translate(150px,60px)}
+100%{transform:translate(-120px,-90px)}
 }
 
-@keyframes zoomInOut{
+@keyframes zoomBounce{
 0%{transform:scale(1)}
-50%{transform:scale(1.3)}
+50%{transform:scale(1.25)}
 100%{transform:scale(1)}
 }
 
 .hug-btn{
-font-size:26px;
-font-weight:600;
+position:absolute;
+bottom:40px;
+font-size:28px;
+font-weight:bold;
 cursor:pointer;
 animation:pulse 1.5s infinite;
 }
@@ -85,26 +95,20 @@ animation:pulse 1.5s infinite;
 
 .hug-page .love-message{
 font-family:'Great Vibes',cursive;
-font-size:30px;
-max-width:80%;
+font-size:34px;
+max-width:85%;
 margin-bottom:20px;
-animation:fadeIn 2s ease-in;
-}
-
-@keyframes fadeIn{
-from{opacity:0}
-to{opacity:1}
 }
 
 video{
-width:250px;
-border-radius:20px;
-box-shadow:0 0 30px #ff4da6;
+width:320px;
+border-radius:25px;
+box-shadow:0 0 40px #ff4da6;
 animation:cinematic 2s ease-in;
 }
 
 @keyframes cinematic{
-from{opacity:0;transform:scale(0.7)}
+from{opacity:0;transform:scale(0.6)}
 to{opacity:1;transform:scale(1)}
 }
 
@@ -119,11 +123,11 @@ animation:explode 1.2s ease-out;
 
 @keyframes explode{
 from{transform:scale(1);opacity:1}
-to{transform:scale(6);opacity:0}
+to{transform:scale(8);opacity:0}
 }
 
 @media(max-width:768px){
-video{width:180px}
-.moving-gallery img{width:70px;height:70px}
-.big-title{font-size:36px}
+.moving-gallery img{width:140px;height:140px}
+video{width:220px}
+.big-title{font-size:38px}
 }
