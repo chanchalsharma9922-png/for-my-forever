@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Eternal Love 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,9 +12,9 @@
 <audio id="bgMusic" src="music/song.mp3" loop></audio>
 
 <div id="page1" class="page active">
-<h1 class="glow">Welcome My Love 💕</h1>
+<h1 class="big-title">Welcome My Love 💕</h1>
 <p id="typing"></p>
-<button class="start-btn" onclick="startExperience()">Enter Our Love Story 💖</button>
+<button onclick="startExperience()">Enter Our Love Story 💖</button>
 </div>
 
 <div id="page2" class="page">
@@ -32,8 +33,7 @@
 </div>
 
 <div id="page4" class="page final-page">
-
-<div class="floating-images">
+<div class="moving-gallery">
 <img src="images/img1.jpg">
 <img src="images/img2.jpg">
 <img src="images/img3.jpg">
@@ -41,17 +41,16 @@
 <img src="images/img5.jpg">
 <img src="images/img6.jpg">
 </div>
+<div class="hug-btn" onclick="goToHugPage()">💖 Click here if you want a Hug 💖</div>
+</div>
 
-<div class="hug-heart" onclick="showHug()">💖 Click here if you want a Hug</div>
-
+<div id="page5" class="page hug-page">
 <div class="love-message" id="loveMessage"></div>
-
-<div class="video-container" id="videoBox" style="display:none;">
+<div class="video-container">
 <video id="finalVideo" muted playsinline>
 <source src="video/mylove.mp4" type="video/mp4">
 </video>
 </div>
-
 </div>
 
 <script src="script.js"></script>

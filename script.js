@@ -1,4 +1,3 @@
-
 const pages=document.querySelectorAll('.page');
 const music=document.getElementById('bgMusic');
 
@@ -14,7 +13,7 @@ setTimeout(()=>nextPage('page2'),4000);
 }
 
 function typeIntro(){
-const text="You are my today, my tomorrow and my forever. 💖";
+let text="You are my today, my tomorrow and my forever. 💖";
 let i=0;
 function typing(){
 if(i<text.length){
@@ -45,11 +44,11 @@ document.getElementById("popup2").innerHTML="Wrong 💔 Try again!";
 }
 }
 
-function showHug(){
-document.querySelector(".hug-heart").style.display="none";
-document.getElementById("videoBox").style.display="flex";
+function goToHugPage(){
+nextPage('page5');
 document.getElementById("finalVideo").play();
 typeLoveMessage();
+fireworks();
 }
 
 function typeLoveMessage(){
@@ -68,16 +67,13 @@ setTimeout(addWord,8000/words.length);
 addWord();
 }
 
-function rain(symbol,count){
-for(let i=0;i<count;i++){
-let el=document.createElement("div");
-el.className="rain";
-el.innerHTML=symbol;
-el.style.left=Math.random()*100+"%";
-el.style.animationDuration=(4+Math.random()*6)+"s";
-document.body.appendChild(el);
+function fireworks(){
+for(let i=0;i<40;i++){
+let spark=document.createElement("div");
+spark.className="firework";
+spark.style.left=Math.random()*100+"%";
+spark.style.top=Math.random()*100+"%";
+document.body.appendChild(spark);
+setTimeout(()=>spark.remove(),1200);
 }
 }
-
-rain("💖",25);
-rain("🌹",20);
