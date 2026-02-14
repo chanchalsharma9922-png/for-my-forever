@@ -1,19 +1,28 @@
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
-background:linear-gradient(-45deg,#ff1e56,#ff66a3,#ffb6c1,#8a2be2);
-background-size:400% 400%;
-animation:bg 12s infinite ease;
 color:white;
 overflow:hidden;
 text-align:center;
 cursor:none;
 }
 
-@keyframes bg{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+#bg-slideshow{
+position:fixed;
+inset:0;
+z-index:-3;
+background-size:cover;
+background-position:center;
+animation:bgSlide 30s infinite;
+filter:brightness(0.6);
+}
+
+@keyframes bgSlide{
+0%{background-image:url('bg/bg1.jpg')}
+25%{background-image:url('bg/bg2.jpg')}
+50%{background-image:url('bg/bg3.jpg')}
+75%{background-image:url('bg/bg4.jpg')}
+100%{background-image:url('bg/bg1.jpg')}
 }
 
 .page{
@@ -29,11 +38,14 @@ box-sizing:border-box;
 .active{display:flex}
 .fade{animation:fade 1.5s}
 
-@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes fade{
+from{opacity:0}
+to{opacity:1}
+}
 
 .title{
 font-family:'Great Vibes',cursive;
-font-size:52px
+font-size:52px;
 }
 
 button{
@@ -42,7 +54,7 @@ margin:10px;
 border:none;
 border-radius:30px;
 font-size:18px;
-background:linear-gradient(45deg,#ff4da6,#ff0066);
+background:linear-gradient(45deg,#ff4da6,#ff0066,#ffcc00);
 color:white;
 cursor:pointer;
 }
@@ -52,16 +64,16 @@ padding:10px;
 border-radius:20px;
 border:none;
 width:220px;
-text-align:center
+text-align:center;
 }
 
 #valentineQuote{
 font-family:'Great Vibes',cursive;
-font-size:32px;
+font-size:34px;
 margin-bottom:15px;
 min-height:70px;
 max-width:90%;
-text-shadow:0 0 15px pink;
+text-shadow:0 0 20px pink;
 }
 
 .photo-frame{
@@ -70,7 +82,7 @@ width:260px;
 height:190px;
 border-radius:15px;
 overflow:hidden;
-box-shadow:0 0 25px rgba(255,255,255,0.6);
+box-shadow:0 0 25px rgba(255,255,255,0.7);
 animation:rotateZoom 7s linear infinite alternate;
 }
 
@@ -96,47 +108,20 @@ background:black;
 .photo-frame:nth-child(5){top:45%;left:35%;animation-delay:4s}
 .photo-frame:nth-child(6){top:65%;right:30%;animation-delay:5s}
 
-@media(max-width:768px){
-
-.title{font-size:36px}
-
-button{
-font-size:15px;
-padding:10px 18px;
-}
-
-.photo-frame{
-width:170px;
-height:130px;
-}
-
-#valentineQuote{
-font-size:24px;
-}
-
-video{
-width:220px;
-}
-
-.hug-btn{
-font-size:20px;
-}
-
-.hug .love-text{
-font-size:26px;
-}
-}
-
 .hug-btn{
 position:absolute;
 bottom:25px;
-font-size:26px;
+font-size:24px;
 font-weight:bold;
 cursor:pointer;
+text-shadow:0 0 15px #ff69b4;
 animation:pulse 1.5s infinite;
+max-width:90%;
 }
 
-@keyframes pulse{50%{transform:scale(1.2)}}
+@keyframes pulse{
+50%{transform:scale(1.2)}
+}
 
 .hug .love-text{
 font-family:'Great Vibes',cursive;
@@ -151,42 +136,30 @@ border-radius:25px;
 box-shadow:0 0 40px #ff4da6;
 }
 
-.burst{
+.firework{
 position:fixed;
-width:10px;
-height:10px;
-background:pink;
+width:8px;
+height:8px;
 border-radius:50%;
-animation:explode 1.5s forwards;
+animation:fire 1.5s forwards;
 }
 
-@keyframes explode{
-to{opacity:0;transform:translate(var(--x),var(--y)) scale(5)}
+@keyframes fire{
+to{
+opacity:0;
+transform:translate(var(--x),var(--y)) scale(3);
+}
 }
 
-.petal{
+.fall{
 position:fixed;
 top:-10%;
-font-size:26px;
+font-size:36px;
 animation:fall linear infinite;
 }
 
 @keyframes fall{
-to{transform:translateY(110vh) rotate(360deg)}
-}
-
-.sparkle{
-position:fixed;
-width:6px;
-height:6px;
-background:radial-gradient(circle,#fff,#ff69b4);
-border-radius:50%;
-pointer-events:none;
-animation:fadeOut .8s forwards;
-}
-
-@keyframes fadeOut{
-to{opacity:0;transform:scale(3)}
+to{transform:translateY(110vh) rotate(720deg)}
 }
 
 #glitter{
@@ -194,13 +167,39 @@ position:fixed;
 inset:0;
 pointer-events:none;
 background:
-radial-gradient(circle at 20% 30%, rgba(255,182,193,0.25), transparent 40%),
-radial-gradient(circle at 80% 40%, rgba(255,105,180,0.25), transparent 45%),
-radial-gradient(circle at 50% 80%, rgba(255,20,147,0.2), transparent 50%);
-animation:shimmer 10s infinite alternate;
+radial-gradient(circle at 20% 30%, rgba(255,0,150,0.3), transparent 40%),
+radial-gradient(circle at 80% 40%, rgba(255,200,0,0.3), transparent 45%),
+radial-gradient(circle at 50% 80%, rgba(0,200,255,0.3), transparent 50%);
+animation:shimmer 8s infinite alternate;
 }
 
 @keyframes shimmer{
 from{filter:blur(0px)}
-to{filter:blur(2px)}
+to{filter:blur(3px)}
+}
+
+@media(max-width:768px){
+
+.title{font-size:36px}
+
+.photo-frame{
+width:170px;
+height:130px;
+}
+
+#valentineQuote{
+font-size:24px;
+}
+
+.hug-btn{
+font-size:18px;
+}
+
+.hug .love-text{
+font-size:26px;
+}
+
+video{
+width:220px;
+}
 }

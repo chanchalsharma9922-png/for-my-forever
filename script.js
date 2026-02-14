@@ -7,6 +7,7 @@ document.getElementById(id).classList.add('active');
 
 if(id==='page4'){
 typeValentine();
+startFireworks();
 }
 }
 
@@ -19,11 +20,14 @@ setTimeout(()=>switchPage('page2'),4000);
 function typeIntro(){
 let text="You are my today, my tomorrow and my forever. 💖";
 let i=0;
+
 function t(){
 if(i<text.length){
-document.getElementById("typing").innerHTML+=text[i];
-i++; setTimeout(t,50);
-}}
+typing.innerHTML+=text[i];
+i++;
+setTimeout(t,50);
+}
+}
 t();
 }
 
@@ -46,67 +50,88 @@ function goToHug(){
 switchPage('page5');
 finalVideo.play();
 typeLove();
-heartExplosion();
+fireworksBurst();
 }
 
 function typeValentine(){
 
-let quote = "Happy Valentine’s Day my love ❤️ You are my heartbeat, my blessing, my forever, and my greatest happiness. I am so lucky to call you my wife and my soulmate.";
+let quote="Happy Valentine’s Day my love ❤️ You are my heartbeat, my blessing, my forever, and my greatest happiness. I am so lucky to call you my wife and my soulmate.";
 
-let words = quote.split(" ");
-let i = 0;
+let words=quote.split(" ");
+let i=0;
 
 valentineQuote.innerHTML="";
 
 function add(){
-if(i < words.length){
-valentineQuote.innerHTML += words[i] + " ";
+if(i<words.length){
+valentineQuote.innerHTML+=words[i]+" ";
 i++;
-setTimeout(add, 250);
+setTimeout(add,250);
 }
 }
 add();
 }
 
 function typeLove(){
+
 let msg="My love, you are my peace, my happiness, my safest place in this world. I promise to hold you, protect you, pamper you and love you more deeply every single day of my life. You are my forever and always. 💞";
+
 let words=msg.split(" ");
 let i=0;
+
 loveMessage.innerHTML="";
+
 function add(){
 if(i<words.length){
 loveMessage.innerHTML+=words[i]+" ";
-i++; setTimeout(add,8000/words.length);
-}}
+i++;
+setTimeout(add,8000/words.length);
+}
+}
 add();
 }
 
-function heartExplosion(){
-for(let i=0;i<50;i++){
-let h=document.createElement("div");
-h.className="burst";
-h.style.setProperty('--x',(Math.random()*400-200)+'px');
-h.style.setProperty('--y',(Math.random()*400-200)+'px');
-document.body.appendChild(h);
-setTimeout(()=>h.remove(),1500);
+function fireworksBurst(){
+
+for(let i=0;i<80;i++){
+
+let f=document.createElement("div");
+f.className="firework";
+
+let colors=["#ff4da6","#ffcc00","#00e5ff","#7cff00","#ff5722","#c77dff"];
+f.style.background=colors[Math.floor(Math.random()*colors.length)];
+
+f.style.left="50%";
+f.style.top="50%";
+
+f.style.setProperty("--x",(Math.random()*600-300)+"px");
+f.style.setProperty("--y",(Math.random()*600-300)+"px");
+
+document.body.appendChild(f);
+
+setTimeout(()=>f.remove(),1500);
 }
 }
+
+function startFireworks(){
+setInterval(fireworksBurst,6000);
+}
+
+const icons=["🌸","🌼","🌺","🌹","💐","❤️","💖","💛","💙","💜","🧡"];
 
 setInterval(()=>{
-let petal=document.createElement("div");
-petal.className="petal";
-petal.innerHTML="🌸";
-petal.style.left=Math.random()*100+"%";
-petal.style.animationDuration=(4+Math.random()*4)+"s";
-document.body.appendChild(petal);
-setTimeout(()=>petal.remove(),9000);
-},400);
 
-document.addEventListener("mousemove",e=>{
-let s=document.createElement("div");
-s.className="sparkle";
-s.style.left=e.pageX+"px";
-s.style.top=e.pageY+"px";
-document.body.appendChild(s);
-setTimeout(()=>s.remove(),600);
-});
+let el=document.createElement("div");
+el.className="fall";
+
+el.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+
+el.style.left=Math.random()*100+"%";
+el.style.fontSize=(30+Math.random()*25)+"px";
+el.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(el);
+
+setTimeout(()=>el.remove(),12000);
+
+},250);
