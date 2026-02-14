@@ -31,7 +31,10 @@ box-sizing:border-box;
 
 @keyframes fade{from{opacity:0}to{opacity:1}}
 
-.title{font-family:'Great Vibes',cursive;font-size:52px}
+.title{
+font-family:'Great Vibes',cursive;
+font-size:52px
+}
 
 button{
 padding:12px 25px;
@@ -52,33 +55,40 @@ width:220px;
 text-align:center
 }
 
-/* Rectangle photo frames */
+#valentineQuote{
+font-family:'Great Vibes',cursive;
+font-size:32px;
+margin-bottom:15px;
+min-height:70px;
+max-width:90%;
+text-shadow:0 0 15px pink;
+}
+
 .photo-frame{
 position:absolute;
-width:200px;
-height:140px;
-border-radius:12px;
+width:260px;
+height:190px;
+border-radius:15px;
 overflow:hidden;
-box-shadow:0 0 20px rgba(255,255,255,0.5);
-animation:bounceMove 6s linear infinite alternate;
+box-shadow:0 0 25px rgba(255,255,255,0.6);
+animation:rotateZoom 7s linear infinite alternate;
 }
 
 .photo-frame img{
 width:100%;
 height:100%;
-object-fit:cover;
+object-fit:contain;
+background:black;
 }
 
-/* Fast bouncing animation */
-@keyframes bounceMove{
-0%{transform:translate(0,0)}
-25%{transform:translate(200px,80px)}
-50%{transform:translate(-180px,160px)}
-75%{transform:translate(150px,-120px)}
-100%{transform:translate(-200px,-160px)}
+@keyframes rotateZoom{
+0%{transform:translate(0,0) scale(1) rotate(0deg);}
+25%{transform:translate(200px,120px) scale(1.2) rotate(90deg);}
+50%{transform:translate(-220px,180px) scale(1.4) rotate(180deg);}
+75%{transform:translate(180px,-150px) scale(1.2) rotate(270deg);}
+100%{transform:translate(-200px,-180px) scale(1) rotate(360deg);}
 }
 
-/* Positions */
 .photo-frame:nth-child(1){top:5%;left:5%;animation-delay:0s}
 .photo-frame:nth-child(2){top:10%;right:5%;animation-delay:1s}
 .photo-frame:nth-child(3){bottom:35%;left:10%;animation-delay:2s}
@@ -86,7 +96,6 @@ object-fit:cover;
 .photo-frame:nth-child(5){top:45%;left:35%;animation-delay:4s}
 .photo-frame:nth-child(6){top:65%;right:30%;animation-delay:5s}
 
-/* Mobile responsiveness */
 @media(max-width:768px){
 
 .title{font-size:36px}
@@ -97,8 +106,12 @@ padding:10px 18px;
 }
 
 .photo-frame{
-width:120px;
-height:85px;
+width:170px;
+height:130px;
+}
+
+#valentineQuote{
+font-size:24px;
 }
 
 video{
@@ -138,7 +151,6 @@ border-radius:25px;
 box-shadow:0 0 40px #ff4da6;
 }
 
-/* Hearts explosion */
 .burst{
 position:fixed;
 width:10px;
@@ -152,7 +164,6 @@ animation:explode 1.5s forwards;
 to{opacity:0;transform:translate(var(--x),var(--y)) scale(5)}
 }
 
-/* Falling petals */
 .petal{
 position:fixed;
 top:-10%;
@@ -164,7 +175,6 @@ animation:fall linear infinite;
 to{transform:translateY(110vh) rotate(360deg)}
 }
 
-/* Sparkles */
 .sparkle{
 position:fixed;
 width:6px;
@@ -179,7 +189,6 @@ animation:fadeOut .8s forwards;
 to{opacity:0;transform:scale(3)}
 }
 
-/* Romantic glow */
 #glitter{
 position:fixed;
 inset:0;

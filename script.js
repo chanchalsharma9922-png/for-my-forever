@@ -4,6 +4,10 @@ const music=document.getElementById('bgMusic');
 function switchPage(id){
 pages.forEach(p=>p.classList.remove('active'));
 document.getElementById(id).classList.add('active');
+
+if(id==='page4'){
+typeValentine();
+}
 }
 
 function startExperience(){
@@ -45,6 +49,25 @@ typeLove();
 heartExplosion();
 }
 
+function typeValentine(){
+
+let quote = "Happy Valentine’s Day my love ❤️ You are my heartbeat, my blessing, my forever, and my greatest happiness. I am so lucky to call you my wife and my soulmate.";
+
+let words = quote.split(" ");
+let i = 0;
+
+valentineQuote.innerHTML="";
+
+function add(){
+if(i < words.length){
+valentineQuote.innerHTML += words[i] + " ";
+i++;
+setTimeout(add, 250);
+}
+}
+add();
+}
+
 function typeLove(){
 let msg="My love, you are my peace, my happiness, my safest place in this world. I promise to hold you, protect you, pamper you and love you more deeply every single day of my life. You are my forever and always. 💞";
 let words=msg.split(" ");
@@ -69,7 +92,6 @@ setTimeout(()=>h.remove(),1500);
 }
 }
 
-/* Falling rose petals */
 setInterval(()=>{
 let petal=document.createElement("div");
 petal.className="petal";
@@ -80,7 +102,6 @@ document.body.appendChild(petal);
 setTimeout(()=>petal.remove(),9000);
 },400);
 
-/* Sparkle cursor */
 document.addEventListener("mousemove",e=>{
 let s=document.createElement("div");
 s.className="sparkle";
