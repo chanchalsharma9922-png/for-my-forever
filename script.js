@@ -53,6 +53,7 @@ typeLove();
 fireworksBurst();
 }
 
+/* Valentine Typing */
 function typeValentine(){
 
 let quote="Happy Valentine’s Day my love ❤️ You are my heartbeat, my blessing, my forever, and my greatest happiness. I am so lucky to call you my wife and my soulmate.";
@@ -72,6 +73,7 @@ setTimeout(add,250);
 add();
 }
 
+/* Love Message */
 function typeLove(){
 
 let msg="My love, you are my peace, my happiness, my safest place in this world. I promise to hold you, protect you, pamper you and love you more deeply every single day of my life. You are my forever and always. 💞";
@@ -91,6 +93,7 @@ setTimeout(add,8000/words.length);
 add();
 }
 
+/* Fireworks */
 function fireworksBurst(){
 
 for(let i=0;i<80;i++){
@@ -117,6 +120,7 @@ function startFireworks(){
 setInterval(fireworksBurst,6000);
 }
 
+/* Falling Icons */
 const icons=["🌸","🌼","🌺","🌹","💐","❤️","💖","💛","💙","💜","🧡"];
 
 setInterval(()=>{

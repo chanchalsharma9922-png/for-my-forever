@@ -7,6 +7,7 @@ text-align:center;
 cursor:none;
 }
 
+/* Background Slideshow */
 #bg-slideshow{
 position:fixed;
 inset:0;
@@ -25,6 +26,7 @@ filter:brightness(0.6);
 100%{background-image:url('bg/bg1.jpg')}
 }
 
+/* Pages */
 .page{
 display:none;
 height:100vh;
@@ -48,6 +50,7 @@ font-family:'Great Vibes',cursive;
 font-size:52px;
 }
 
+/* Buttons */
 button{
 padding:12px 25px;
 margin:10px;
@@ -67,15 +70,25 @@ width:220px;
 text-align:center;
 }
 
+/* Valentine Quote - IMPROVED VISIBILITY */
 #valentineQuote{
 font-family:'Great Vibes',cursive;
-font-size:34px;
+font-size:42px;
+font-weight:bold;
 margin-bottom:15px;
-min-height:70px;
-max-width:90%;
-text-shadow:0 0 20px pink;
+min-height:80px;
+max-width:92%;
+padding:12px 18px;
+background:rgba(0,0,0,0.45);
+border-radius:15px;
+z-index:5;
+text-shadow:
+0 0 10px #ff69b4,
+0 0 20px #ff1493,
+0 0 30px #ff4da6;
 }
 
+/* Photo Frames */
 .photo-frame{
 position:absolute;
 width:260px;
@@ -84,6 +97,7 @@ border-radius:15px;
 overflow:hidden;
 box-shadow:0 0 25px rgba(255,255,255,0.7);
 animation:rotateZoom 7s linear infinite alternate;
+z-index:2;
 }
 
 .photo-frame img{
@@ -101,6 +115,7 @@ background:black;
 100%{transform:translate(-200px,-180px) scale(1) rotate(360deg);}
 }
 
+/* Positions */
 .photo-frame:nth-child(1){top:5%;left:5%;animation-delay:0s}
 .photo-frame:nth-child(2){top:10%;right:5%;animation-delay:1s}
 .photo-frame:nth-child(3){bottom:35%;left:10%;animation-delay:2s}
@@ -108,6 +123,7 @@ background:black;
 .photo-frame:nth-child(5){top:45%;left:35%;animation-delay:4s}
 .photo-frame:nth-child(6){top:65%;right:30%;animation-delay:5s}
 
+/* Hug Button */
 .hug-btn{
 position:absolute;
 bottom:25px;
@@ -117,17 +133,27 @@ cursor:pointer;
 text-shadow:0 0 15px #ff69b4;
 animation:pulse 1.5s infinite;
 max-width:90%;
+z-index:5;
 }
 
 @keyframes pulse{
 50%{transform:scale(1.2)}
 }
 
+/* Hug Page Message - IMPROVED */
 .hug .love-text{
 font-family:'Great Vibes',cursive;
-font-size:34px;
-max-width:90%;
+font-size:40px;
+font-weight:bold;
+max-width:92%;
 margin-bottom:20px;
+padding:15px 20px;
+background:rgba(0,0,0,0.5);
+border-radius:18px;
+text-shadow:
+0 0 12px #ff69b4,
+0 0 25px #ff1493;
+z-index:5;
 }
 
 video{
@@ -136,6 +162,7 @@ border-radius:25px;
 box-shadow:0 0 40px #ff4da6;
 }
 
+/* Fireworks */
 .firework{
 position:fixed;
 width:8px;
@@ -151,6 +178,7 @@ transform:translate(var(--x),var(--y)) scale(3);
 }
 }
 
+/* Falling Hearts & Flowers */
 .fall{
 position:fixed;
 top:-10%;
@@ -162,6 +190,7 @@ animation:fall linear infinite;
 to{transform:translateY(110vh) rotate(720deg)}
 }
 
+/* Glitter */
 #glitter{
 position:fixed;
 inset:0;
@@ -178,6 +207,7 @@ from{filter:blur(0px)}
 to{filter:blur(3px)}
 }
 
+/* Mobile */
 @media(max-width:768px){
 
 .title{font-size:36px}
@@ -188,7 +218,7 @@ height:130px;
 }
 
 #valentineQuote{
-font-size:24px;
+font-size:26px;
 }
 
 .hug-btn{
@@ -196,7 +226,7 @@ font-size:18px;
 }
 
 .hug .love-text{
-font-size:26px;
+font-size:28px;
 }
 
 video{
